@@ -48,7 +48,7 @@ export default class ListContacts extends Component {
                                 <img src={`images/${item.photo}`} alt="profile" />
                               
                                 :
-                                <img src="images/placeholder.jpg" allt="user placeholder" />
+                                <img src="images/placeholder.jpg" alt="user placeholder" />
                             }
                             <Link to={`details/${item._id}`}><h2>{item.name}</h2></Link>
 
