@@ -45,7 +45,7 @@ class Popup extends Component {
         const userInfo = { ...this.state, _id: this.props.contact._id }
         console.log(userInfo)
         //this.props.handleEdit(userInfo);
-        axios.put('http://localhost:4000/update/' + this.props.contact._id, formData)
+        axios.put('https://my-contact-info.herokuapp.com/update/' + this.props.contact._id, formData)
             .then(res => {
                 console.log(res.data);
                 this.props.handleEdit(formData);
