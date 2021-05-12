@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react'
 import ListContacts from './ListContacts';
@@ -10,46 +9,18 @@ import axios from 'axios';
 
 class App extends Component {
   state = {
-    contacts: [
-      //{
-      //  id: 'ryan',
-      //  name: 'Ryan Florence',
-      //  email: 'ryan@reacttraining.com',
-      //  photo: 'ryan.jpg'
-      //},
-      //{
-      //  id: 'michael',
-      //  name: 'Michael Jackson',
-      //  email: 'michael@reacttraining.com',
-      //  photo: 'michael.jpg'
-      //},
-      //{
-      //  id: 'tyler',
-      //  name: 'Tyler McGinnis',
-      //  email: 'tyler@reacttraining.com',
-      //  photo: 'tyler.jpg'
-      //}
-    ]
+    contacts: []
   }
   handleEdit = (userInfo) => {
     console.log(userInfo);
-    //const newOne = this.state.contacts.filter((item) => item.id === userInfo.id)
-    //console.log(newOne);
-    //this.setState({
-    //  contacts: this.state.contacts.map(el => (el.id === userInfo.id ? { ...el, userInfo } : el))
-    //});
+   
     const index = this.state.contacts.findIndex(emp => emp._id === userInfo.id),
       contacts = [...this.state.contacts] // important to create a copy, otherwise you'll modify state outside of setState call
     contacts[index] = userInfo;
     this.setState({ contacts });
 
   }
-  //handleDelete = (userId) => {
-  //  this.setState({
-  //    contacts: this.state.contacts.filter((item) => item._id !== userId)
-
-  //  })
-  //}
+  
   handleDelete = (userId) => {
     axios.delete('http://localhost:4000/delete/' + userId)
       .then(res => {
@@ -61,13 +32,9 @@ class App extends Component {
       })
   }
 
-  // remove(){
-
-
-  //}
   onCreateContact = (contactInfo) => {
     console.log(contactInfo);
-    axios.post('http://localhost:4000/newContact', contactInfo)
+    axios.post('https://my-contact-info.herokuapp.com/newContact', contactInfo)
       .then((res) => {
         console.log(res);
       })
@@ -75,7 +42,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000')
+    axios.get('https://my-contact-info.herokuapp.com/')
       .then((res) => {
         console.log(res);
         this.setState({
@@ -103,5 +70,5 @@ class App extends Component {
     );
   }
 }
-//contact={this.state.contacts.filter((contact) => contact._id === props.match.params.contactId)} handleEdit={(info) => this.handleEdit(info)}
+
 export default App;
