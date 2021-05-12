@@ -16,7 +16,7 @@ class Details extends Component {
 
     }
     async getData() {
-        const contact = await axios.get(`http://localhost:4000/details/${this.props.match.params.contactId}`)
+        const contact = await axios.get(`https://my-contact-info.herokuapp.com/details/${this.props.match.params.contactId}`)
 
         this.setState({ currentcontact: contact.data });
     }
@@ -39,7 +39,7 @@ class Details extends Component {
                 <Link to="/" className="close-create-contact" >Back</Link>
                 {/*<button onClick={this.props.history.goBack()} >Back2</button>*/}
                 <div className="details">
-                    <img src={`../images/${this.state.currentcontact.photo}`} alt="Contact Image"/>
+                    <img src={`../images/${this.state.currentcontact.photo}`} alt="user profile"/>
 
                     <h2>{this.state.currentcontact.name}</h2>
                     <h2>{this.state.currentcontact.email}</h2>
