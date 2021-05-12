@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 
 let fileInfo = '';
-let fileUpload = false;
+
 class Popup extends Component {
     state = {
         name: this.props.contact.name,
@@ -23,14 +23,7 @@ class Popup extends Component {
         //e.preventDefault();
         this.setState({ ...this.state, [e.target.name]: e.target.files[0].name });
         fileInfo = e.target.files[0];
-        //this.setFile();
-        //console.log(fileInfo);
-        //fileUpload = true;
-
-        //this.setState({ ...this.state, [e.target.name]: e.target.files[0].name });
-        // fileInfo = e.target.files[0];
-
-    }
+       }
 
 
     handleEdit = (e) => {
@@ -47,22 +40,8 @@ class Popup extends Component {
         else {
             formData.append('photo', this.state.photo);
         }
-        //console.log(fileInfo);
-        //if (fileUpload) {
-        //    const formData = new FormData()
-        //    formData.append('photo', fileInfo);
-        //    console.log(formData)
-        //    axios.post("http://localhost:4000/photo", formData, { // receive two parameter endpoint url ,form data 
-        //    })
-        //        .then(res => { // then print response status
-        //            console.log(res);
-        //            const userInfo = { ...this.state, _id: this.props.contact._id }
-        //            console.log(userInfo)
-        //            this.props.handleEdit(userInfo);
-
-        //        })
-        //}
-        //else {
+       
+        
         const userInfo = { ...this.state, _id: this.props.contact._id }
         console.log(userInfo)
         //this.props.handleEdit(userInfo);
@@ -74,10 +53,7 @@ class Popup extends Component {
             );
 
         window.location = '/';
-        // }
-        //const userInfo = { ...this.state, id: this.props.contact.id }
-        //console.log(userInfo)
-        //this.props.handleEdit(userInfo);
+        
 
     }
 
