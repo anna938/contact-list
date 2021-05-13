@@ -45,7 +45,7 @@ export default class ListContacts extends Component {
                             {item.photo !== '' ?
 
 
-                                <img src={`images/${item.photo}`} alt="profile" />
+                                <img src={`https://my-contact-info.herokuapp.com/assets/images/${item.photo}`} alt="profile" />
                               
                                 :
                                 <img src="images/placeholder.jpg" alt="user placeholder" />
